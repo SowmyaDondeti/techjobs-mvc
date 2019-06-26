@@ -53,6 +53,21 @@
 
 
     </div>
+    <div th:if="${items} and ${items.size()}">
+        <h3 th:text="${header}" ></h3>
+            <tr th:each="item, idx : ${items}" th:class="${idx.odd} ? 'odd'">
+                <table th:class="job-listing">
+                    <tr th:each="item1 : ${item}">
+                        <th th:text="${#strings.capitalizeWords(item1.key)}">keyvalue</th>
+                        <td th:text="${item1.value}">num</td>
+                    </tr>
+                </table>
+
+
+            </tr>
+
+
+    </div>
 
 </div>
 
