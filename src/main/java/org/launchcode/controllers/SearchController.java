@@ -20,7 +20,9 @@ public class SearchController {
 
     @RequestMapping(value ="")
     public String search(Model model) {
-        model.addAttribute("columns", columnChoices);
+
+      model.addAttribute("columns", columnChoices);
+
         return "search";
     }
 
@@ -33,8 +35,8 @@ public class SearchController {
             model.addAttribute("jobs",jobs);
             model.addAttribute("header",jobs.size()+" Result(s)");
                 }else {
-            ArrayList<HashMap<String, String>> items = JobData.findByValue(searchTerm);
-            model.addAttribute("column", searchType);
+            ArrayList<HashMap<String, String>> items = JobData.findByColumnAndValue(searchType,searchTerm);
+            model.addAttribute("selectedColumn", searchType);
             model.addAttribute("items", items);
             model.addAttribute("header",items.size()+" Result(s)");
         }

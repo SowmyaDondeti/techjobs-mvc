@@ -15,12 +15,13 @@
 
         <p>
             <span th:each="column : ${columns}">
+
                 <input
                         type="radio"
                         name="searchType"
                         th:id="${column.key}"
                         th:value="${column.key}"
-                        th:checked="${column.key == 'all'}"/>
+                        th:checked="${column.key} == ${selectedColumn} or ${column.key} == 'all'"/>
                 <label th:for="${column.key}" th:text="${column.value}"></label>
             </span>
 
@@ -73,3 +74,6 @@
 
 </body>
 </html>
+<!--th:id="${column.key}"-->
+<!--th:checked="${column.key == 'all'}"-->
+
