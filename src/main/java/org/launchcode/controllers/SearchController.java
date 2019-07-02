@@ -16,7 +16,7 @@ import static org.launchcode.controllers.ListController.columnChoices;
  */
 @Controller
 @RequestMapping("search")
-public class SearchController {
+public class SearchController  extends TechJobsController {
 
     @RequestMapping(value ="")
     public String search(Model model) {
@@ -35,10 +35,10 @@ public class SearchController {
             model.addAttribute("jobs",jobs);
             model.addAttribute("header",jobs.size()+" Result(s)");
                 }else {
-            ArrayList<HashMap<String, String>> items = JobData.findByColumnAndValue(searchType,searchTerm);
+            ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(searchType,searchTerm);
             model.addAttribute("selectedColumn", searchType);
-            model.addAttribute("items", items);
-            model.addAttribute("header",items.size()+" Result(s)");
+            model.addAttribute("jobs", jobs);
+            model.addAttribute("header",jobs.size()+" Result(s)");
         }
         return "search";
 
