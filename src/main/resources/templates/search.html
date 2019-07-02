@@ -54,13 +54,14 @@
 
 
     </div>
-    <div th:if="${items} and ${items.size()}">
+    <div th:fragment="jobs-list">
+    <div th:if="${jobs} and ${jobs.size()}">
         <h3 th:text="${header}" ></h3>
-            <tr th:each="item, idx : ${items}" th:class="${idx.odd} ? 'odd'">
+            <tr th:each="job, idx : ${jobs}" th:class="${idx.odd} ? 'odd'">
                 <table th:class="job-listing">
-                    <tr th:each="item1 : ${item}">
-                        <th th:text="${#strings.capitalizeWords(item1.key)}">keyvalue</th>
-                        <td th:text="${item1.value}">num</td>
+                    <tr th:each="job1 : ${job}">
+                        <th th:text="${#strings.capitalizeWords(job1.key)}">keyvalue</th>
+                        <td th:text="${job1.value}">num</td>
                     </tr>
                 </table>
 
@@ -69,11 +70,10 @@
 
 
     </div>
+    </div>
 
 </div>
 
 </body>
 </html>
-<!--th:id="${column.key}"-->
-<!--th:checked="${column.key == 'all'}"-->
 
