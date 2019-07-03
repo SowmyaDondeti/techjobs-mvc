@@ -16,7 +16,7 @@ import static org.launchcode.controllers.ListController.columnChoices;
  */
 @Controller
 @RequestMapping("search")
-public class SearchController  extends TechJobsController {
+public class SearchController   {
 
     @RequestMapping(value ="")
     public String search(Model model) {
